@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="NEXELION CUTTING SOLUTION manufactures industrial metal cutting bandsaw machines engineered for precision, durability, and productivity."
+    />
+    <title>NEXELION CUTTING SOLUTION | Industrial Metal Cutting Bandsaw Machines</title>
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Montserrat:wght@700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      window.tailwind = window.tailwind || {};
+      window.tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              industrial: {
+                black: "#0B0B0B",
+                panel: "#121212",
+                orange: "#FF5722",
+                burnt: "#E65100",
+                steel: "#8EA7B8"
+              }
+            },
+            fontFamily: {
+              sans: ["Inter", "system-ui", "sans-serif"],
+              display: ["Montserrat", "Inter", "system-ui", "sans-serif"]
+            },
+            boxShadow: {
+              glow: "0 0 42px rgba(255, 87, 34, 0.18)"
+            }
+          }
+        }
+      };
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      :root {
+        color-scheme: dark;
+        font-size: 18px;
+      }
+
+      body {
+        font-size: 1rem;
+        background:
+          radial-gradient(circle at 20% 0%, rgba(255, 87, 34, 0.15), transparent 28rem),
+          radial-gradient(circle at 90% 20%, rgba(142, 167, 184, 0.12), transparent 24rem),
+          #0b0b0b;
+      }
+
+      .industrial-grid {
+        background-image:
+          linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+        background-size: 44px 44px;
+      }
+
+      .glass-nav {
+        background: rgba(11, 11, 11, 0.72);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(18px);
+      }
+
+      .glass-nav.is-scrolled {
+        box-shadow: 0 18px 50px rgba(0, 0, 0, 0.36);
+      }
+
+      .nav-link {
+        position: relative;
+      }
+
+      .nav-link::after {
+        background: #ff5722;
+        bottom: -0.45rem;
+        content: "";
+        height: 2px;
+        left: 0;
+        position: absolute;
+        transform: scaleX(0);
+        transform-origin: right;
+        transition: transform 180ms ease;
+        width: 100%;
+      }
+
+      .nav-link:hover::after,
+      .nav-link:focus-visible::after {
+        transform: scaleX(1);
+        transform-origin: left;
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(24px);
+        transition: opacity 560ms ease, transform 560ms ease;
+      }
+
+      .reveal.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .slider-track {
+        display: flex;
+        transition: transform 620ms cubic-bezier(0.22, 1, 0.36, 1);
+        will-change: transform;
+      }
+
+      .slider-dot[aria-current="true"] {
+        background: #ff5722;
+        width: 2.25rem;
+      }
+
+      .form-field.is-invalid {
+        border-color: rgba(255, 87, 34, 0.95);
+        box-shadow: 0 0 0 3px rgba(255, 87, 34, 0.14);
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          scroll-behavior: auto !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+    </style>
+  </head>
+  <body class="font-sans text-zinc-100 antialiased">
+    <header id="siteHeader" class="glass-nav fixed inset-x-0 top-0 z-50 transition-all duration-300">
+      <nav class="mx-auto flex max-w-7xl items-center justify-between px-5 py-5 lg:px-8" aria-label="Primary navigation">
+        <a href="#home" class="group flex items-center gap-3" aria-label="NEXELION home">
+          <span class="grid h-11 w-11 place-items-center rounded-lg border border-industrial-orange/35 bg-industrial-orange/10 text-xl font-black text-industrial-orange shadow-glow">
+            N
+          </span>
+          <span class="leading-none">
+            <span class="block font-display text-xl font-black tracking-normal text-white">NEXELION</span>
+            <span class="block text-sm font-semibold uppercase tracking-[0.22em] text-zinc-500">Cutting Solution</span>
+          </span>
+        </a>
+
+        <div class="hidden items-center gap-8 md:flex">
+          <a href="#home" class="nav-link text-lg font-semibold text-zinc-300 transition hover:text-white">Home</a>
+          <a href="#about" class="nav-link text-lg font-semibold text-zinc-300 transition hover:text-white">About</a>
+          <a href="#products" class="nav-link text-lg font-semibold text-zinc-300 transition hover:text-white">Products</a>
+          <a href="#contact" class="nav-link text-lg font-semibold text-zinc-300 transition hover:text-white">Contact</a>
+        </div>
+
+        <a
+          href="#contact"
+          class="hidden items-center gap-2 rounded-lg border border-white/10 px-5 py-3 text-base font-semibold text-white transition hover:-translate-y-0.5 hover:border-industrial-orange hover:bg-industrial-orange hover:shadow-glow md:inline-flex"
+        >
+          Request Quote
+          <i data-lucide="arrow-up-right" class="h-5 w-5" aria-hidden="true"></i>
+        </a>
+
+        <button
+          id="menuToggle"
+          class="inline-grid h-11 w-11 place-items-center rounded-lg border border-white/10 bg-white/5 text-white transition hover:border-industrial-orange hover:text-industrial-orange md:hidden"
+          type="button"
+          aria-label="Open navigation menu"
+          aria-controls="mobileMenu"
+          aria-expanded="false"
+        >
+          <i data-lucide="menu" class="h-6 w-6" aria-hidden="true"></i>
+        </button>
+      </nav>
+
+      <div id="mobileMenu" class="mx-5 hidden rounded-lg border border-white/10 bg-industrial-black/95 p-3 shadow-2xl md:hidden">
+        <a href="#home" class="mobile-nav-link block rounded-md px-3 py-3 text-base font-semibold text-zinc-200 hover:bg-white/5">Home</a>
+        <a href="#about" class="mobile-nav-link block rounded-md px-3 py-3 text-base font-semibold text-zinc-200 hover:bg-white/5">About</a>
+        <a href="#products" class="mobile-nav-link block rounded-md px-3 py-3 text-base font-semibold text-zinc-200 hover:bg-white/5">Products</a>
+        <a href="#contact" class="mobile-nav-link block rounded-md px-3 py-3 text-base font-semibold text-zinc-200 hover:bg-white/5">Contact</a>
+      </div>
+    </header>
+
+    <main>
+      <section id="home" class="relative isolate min-h-[92svh] overflow-hidden pt-28">
+        <img
+          src="assets/hero-bandsaw.png"
+          alt="Premium industrial metal cutting bandsaw machine in a dark factory"
+          class="absolute inset-0 -z-20 h-full w-full object-cover"
+          fetchpriority="high"
+        />
+        <div class="absolute inset-0 -z-10 bg-gradient-to-r from-industrial-black via-industrial-black/82 to-industrial-black/35"></div>
+        <div class="absolute inset-0 -z-10 industrial-grid opacity-40"></div>
+
+        <div class="mx-auto flex min-h-[calc(92svh-7rem)] max-w-7xl items-center px-5 pb-16 lg:px-8">
+          <div class="max-w-3xl reveal">
+            <p class="mb-5 inline-flex items-center gap-2 rounded-lg border border-industrial-orange/30 bg-industrial-orange/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-industrial-orange">
+              <i data-lucide="gauge" class="h-4 w-4" aria-hidden="true"></i>
+              Precision Engineering
+            </p>
+            <h1 class="font-display text-6xl font-black leading-[0.98] text-white sm:text-7xl lg:text-8xl">
+              NEXELION CUTTING SOLUTION
+            </h1>
+            <p class="mt-5 text-2xl font-semibold text-industrial-orange sm:text-3xl">
+              Precision Engineering. Powering Your Cutting Performance.
+            </p>
+            <p class="mt-6 max-w-2xl text-lg leading-9 text-zinc-300 sm:text-xl">
+              Leading manufacturer and supplier of industrial metal cutting bandsaw machines built for consistent
+              performance, durability, and productivity across workshops and large manufacturing facilities.
+            </p>
+            <div class="mt-9 flex flex-col gap-4 sm:flex-row">
+              <a
+                href="#products"
+                class="group inline-flex items-center justify-center gap-3 rounded-lg bg-industrial-orange px-6 py-4 text-sm font-black uppercase tracking-[0.14em] text-white shadow-glow transition hover:-translate-y-1 hover:scale-[1.02] hover:bg-industrial-burnt"
+              >
+                Explore Products
+                <i data-lucide="arrow-right" class="h-5 w-5 transition group-hover:translate-x-1" aria-hidden="true"></i>
+              </a>
+              <a
+                href="#contact"
+                class="group inline-flex items-center justify-center gap-3 rounded-lg border border-white/20 px-6 py-4 text-sm font-black uppercase tracking-[0.14em] text-white transition hover:-translate-y-1 hover:scale-[1.02] hover:border-industrial-orange hover:bg-white/10"
+              >
+                Contact Us
+                <i data-lucide="phone-call" class="h-5 w-5 transition group-hover:rotate-6" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="bg-industrial-panel py-20 sm:py-24">
+        <div class="mx-auto max-w-7xl px-5 lg:px-8">
+          <div class="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
+            <div class="reveal">
+              <p class="text-base font-bold uppercase tracking-[0.24em] text-industrial-orange">About Us</p>
+              <h2 class="mt-4 font-display text-5xl font-black text-white sm:text-6xl">THE NEXELION STANDARD</h2>
+            </div>
+            <div class="space-y-5 text-lg leading-9 text-zinc-300 reveal">
+              <p>
+                NEXELION CUTTING SOLUTION is a leading manufacturer and supplier of industrial metal cutting bandsaw
+                machines. With decades of expertise in precision engineering, we have built a strong reputation as a
+                trusted partner across industries globally.
+              </p>
+              <p>
+                We are committed to innovation, superior quality, and customer satisfaction. Our machines are designed
+                to deliver consistent performance, durability, and efficiency in demanding industrial environments.
+              </p>
+            </div>
+          </div>
+
+          <div class="mt-14 grid gap-5 md:grid-cols-3">
+            <article class="reveal rounded-lg border border-white/10 bg-white/[0.035] p-6 transition hover:-translate-y-2 hover:border-industrial-orange/70 hover:bg-white/[0.055]">
+              <i data-lucide="target" class="h-9 w-9 text-industrial-orange" aria-hidden="true"></i>
+              <h3 class="mt-6 text-xl font-bold text-white">Our Mission</h3>
+              <p class="mt-3 leading-7 text-zinc-400">
+                To deliver cutting solutions that enhance productivity and precision in industrial operations.
+              </p>
+            </article>
+            <article class="reveal rounded-lg border border-white/10 bg-white/[0.035] p-6 transition hover:-translate-y-2 hover:border-industrial-orange/70 hover:bg-white/[0.055]">
+              <i data-lucide="radar" class="h-9 w-9 text-industrial-orange" aria-hidden="true"></i>
+              <h3 class="mt-6 text-xl font-bold text-white">Our Vision</h3>
+              <p class="mt-3 leading-7 text-zinc-400">
+                To become a global leader in manufacturing excellence by setting new benchmarks in cutting technology.
+              </p>
+            </article>
+            <article class="reveal rounded-lg border border-white/10 bg-white/[0.035] p-6 transition hover:-translate-y-2 hover:border-industrial-orange/70 hover:bg-white/[0.055]">
+              <i data-lucide="shield-check" class="h-9 w-9 text-industrial-orange" aria-hidden="true"></i>
+              <h3 class="mt-6 text-xl font-bold text-white">Why Trust Us</h3>
+              <p class="mt-3 leading-7 text-zinc-400">
+                We use premium-grade materials, advanced engineering, and strict quality testing to ensure long-lasting
+                performance and reliability.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="products" class="relative overflow-hidden py-20 sm:py-24">
+        <div class="absolute inset-0 -z-10 industrial-grid opacity-25"></div>
+        <div class="mx-auto max-w-7xl px-5 lg:px-8">
+          <div class="flex flex-col justify-between gap-6 md:flex-row md:items-end">
+            <div class="reveal">
+              <p class="text-base font-bold uppercase tracking-[0.24em] text-industrial-orange">Our Collection</p>
+              <h2 class="mt-4 font-display text-5xl font-black text-white sm:text-6xl">Cutting Solutions</h2>
+            </div>
+            <p class="max-w-xl text-lg leading-9 text-zinc-400 reveal">
+              Precision-built bandsaw machinery for workshops and manufacturing teams that need dependable cutting
+              accuracy, durable construction, and efficient repeat production.
+            </p>
+          </div>
+
+          <div id="featuredProduct" class="mt-12"></div>
+        </div>
+      </section>
+
+      <section id="capabilities" class="bg-industrial-panel py-20 sm:py-24">
+        <div class="mx-auto max-w-7xl px-5 lg:px-8">
+          <div class="mb-10 flex flex-col justify-between gap-5 md:flex-row md:items-end">
+            <div class="reveal">
+              <p class="text-base font-bold uppercase tracking-[0.24em] text-industrial-orange">Shopfloor Confidence</p>
+              <h2 class="mt-4 font-display text-5xl font-black text-white sm:text-6xl">Built for Industrial Flow</h2>
+            </div>
+            <div class="flex gap-3 reveal">
+              <button
+                id="sliderPrev"
+                class="grid h-11 w-11 place-items-center rounded-lg border border-white/10 bg-white/5 text-white transition hover:-translate-y-0.5 hover:border-industrial-orange hover:text-industrial-orange"
+                type="button"
+                aria-label="Previous slide"
+              >
+                <i data-lucide="arrow-left" class="h-5 w-5" aria-hidden="true"></i>
+              </button>
+              <button
+                id="sliderNext"
+                class="grid h-11 w-11 place-items-center rounded-lg border border-white/10 bg-white/5 text-white transition hover:-translate-y-0.5 hover:border-industrial-orange hover:text-industrial-orange"
+                type="button"
+                aria-label="Next slide"
+              >
+                <i data-lucide="arrow-right" class="h-5 w-5" aria-hidden="true"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="reveal overflow-hidden rounded-lg border border-white/10 bg-black/30 shadow-2xl">
+            <div id="sliderViewport" class="relative">
+              <div id="sliderTrack" class="slider-track"></div>
+            </div>
+            <div class="flex items-center justify-between gap-5 border-t border-white/10 px-5 py-4">
+              <p id="sliderCounter" class="text-sm font-semibold text-zinc-400">01 / 03</p>
+              <div id="sliderDots" class="flex items-center gap-2" aria-label="Carousel pagination"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="py-20 sm:py-24">
+        <div class="mx-auto max-w-7xl px-5 lg:px-8">
+          <div class="grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
+            <div class="reveal">
+              <p class="text-base font-bold uppercase tracking-[0.24em] text-industrial-orange">Contact</p>
+              <h2 class="mt-4 font-display text-5xl font-black text-white sm:text-6xl">Start Your Cutting Upgrade</h2>
+              <p class="mt-5 max-w-xl text-lg leading-9 text-zinc-400">
+                Connect with NEXELION CUTTING SOLUTION for industrial bandsaw machine enquiries, technical details, and
+                quote requests.
+              </p>
+
+              <div class="mt-10 grid gap-4">
+                <a href="tel:+917219773109" class="group flex items-start gap-4 rounded-lg border border-white/10 bg-white/[0.035] p-5 transition hover:-translate-y-1 hover:border-industrial-orange/70">
+                  <i data-lucide="phone" class="mt-1 h-5 w-5 text-industrial-orange" aria-hidden="true"></i>
+                  <span>
+                    <span class="block text-base font-semibold uppercase tracking-[0.18em] text-zinc-500">Phone</span>
+                    <span class="mt-1 block font-bold text-white group-hover:text-industrial-orange">+91 7219773109</span>
+                  </span>
+                </a>
+                <a href="mailto:NEXELIONCUTINGSOLUTION4905@GMAIL.COM" class="group flex items-start gap-4 rounded-lg border border-white/10 bg-white/[0.035] p-5 transition hover:-translate-y-1 hover:border-industrial-orange/70">
+                  <i data-lucide="mail" class="mt-1 h-5 w-5 text-industrial-orange" aria-hidden="true"></i>
+                  <span>
+                    <span class="block text-base font-semibold uppercase tracking-[0.18em] text-zinc-500">Email</span>
+                    <span class="mt-1 block break-all font-bold text-white group-hover:text-industrial-orange">NEXELIONCUTINGSOLUTION4905@GMAIL.COM</span>
+                  </span>
+                </a>
+                <div class="flex items-start gap-4 rounded-lg border border-white/10 bg-white/[0.035] p-5">
+                  <i data-lucide="map-pin" class="mt-1 h-5 w-5 text-industrial-orange" aria-hidden="true"></i>
+                  <span>
+                    <span class="block text-base font-semibold uppercase tracking-[0.18em] text-zinc-500">Address</span>
+                    <span class="mt-1 block font-bold text-white">Pune, India</span>
+                  </span>
+                </div>
+                <div class="flex items-start gap-4 rounded-lg border border-white/10 bg-white/[0.035] p-5">
+                  <i data-lucide="clock-3" class="mt-1 h-5 w-5 text-industrial-orange" aria-hidden="true"></i>
+                  <span>
+                    <span class="block text-base font-semibold uppercase tracking-[0.18em] text-zinc-500">Business Hours</span>
+                    <span class="mt-1 block font-bold text-white">Monday - Saturday, 9:00 AM - 6:00 PM IST</span>
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <form id="contactForm" class="reveal rounded-lg border border-white/10 bg-industrial-panel p-6 shadow-2xl sm:p-8" novalidate>
+              <div class="grid gap-5">
+                <div>
+                  <label for="name" class="mb-2 block text-base font-bold text-white">Name</label>
+                  <input
+                    id="name"
+                    name="name"
+                    type="text"
+                    autocomplete="name"
+                    class="form-field w-full rounded-lg border border-white/10 bg-black/35 px-4 py-3 text-white outline-none transition placeholder:text-zinc-600 focus:border-industrial-orange focus:ring-4 focus:ring-industrial-orange/15"
+                    placeholder="Your name"
+                    aria-describedby="nameError"
+                  />
+                  <p id="nameError" class="mt-2 min-h-5 text-sm font-medium text-industrial-orange" aria-live="polite"></p>
+                </div>
+
+                <div>
+                  <label for="email" class="mb-2 block text-sm font-bold text-white">Email</label>
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    autocomplete="email"
+                    class="form-field w-full rounded-lg border border-white/10 bg-black/35 px-4 py-3 text-white outline-none transition placeholder:text-zinc-600 focus:border-industrial-orange focus:ring-4 focus:ring-industrial-orange/15"
+                    placeholder="you@example.com"
+                    aria-describedby="emailError"
+                  />
+                  <p id="emailError" class="mt-2 min-h-5 text-sm font-medium text-industrial-orange" aria-live="polite"></p>
+                </div>
+
+                <div>
+                  <label for="message" class="mb-2 block text-sm font-bold text-white">Message</label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows="5"
+                    class="form-field w-full resize-none rounded-lg border border-white/10 bg-black/35 px-4 py-3 text-white outline-none transition placeholder:text-zinc-600 focus:border-industrial-orange focus:ring-4 focus:ring-industrial-orange/15"
+                    placeholder="Tell us what you need to cut"
+                    aria-describedby="messageError"
+                  ></textarea>
+                  <p id="messageError" class="mt-2 min-h-5 text-sm font-medium text-industrial-orange" aria-live="polite"></p>
+                </div>
+
+                <button
+                  type="submit"
+                  class="group inline-flex items-center justify-center gap-3 rounded-lg bg-industrial-orange px-6 py-4 text-sm font-black uppercase tracking-[0.14em] text-white shadow-glow transition hover:-translate-y-1 hover:scale-[1.01] hover:bg-industrial-burnt"
+                >
+                  Send Enquiry
+                  <i data-lucide="send" class="h-5 w-5 transition group-hover:translate-x-1 group-hover:-translate-y-1" aria-hidden="true"></i>
+                </button>
+
+                <p id="formStatus" class="hidden rounded-lg border border-emerald-400/25 bg-emerald-400/10 px-4 py-3 text-sm font-semibold text-emerald-200" role="alert"></p>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="border-t border-white/10 bg-black py-8">
+      <div class="mx-auto flex max-w-7xl flex-col justify-between gap-4 px-5 text-sm text-zinc-500 sm:flex-row lg:px-8">
+        <p>&copy; <span id="year"></span> NEXELION CUTTING SOLUTION. All rights reserved.</p>
+        <p>Industrial metal cutting bandsaw machines | Pune, India</p>
+      </div>
+    </footer>
+
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
