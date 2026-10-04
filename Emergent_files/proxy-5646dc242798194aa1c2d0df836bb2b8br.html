@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<!-- saved from url=(0189)https://dev.visualwebsiteoptimizer.com/static/1.0/proxy-5646dc242798194aa1c2d0df836bb2b8br.html?a=1188541#encodingType=br&cdnServerUrl=https://dev.visualwebsiteoptimizer.com/cdn/static/1.0/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title></title>
+    <script>
+      // Function to extract the value of vwo_eT from the hash
+      function getCdnConfigFromURL() {
+        const hash = window.location.hash.substring(1); // Remove the # character
+        const params = new URLSearchParams(hash);
+        return {
+          encodingType: params.get('encodingType') || '',
+          cdnServerUrl: params.get('cdnServerUrl') || ''
+        };
+      }
+      function createScript(src) {
+        var script = document.createElement('script');
+        if (src) {
+          script.src = src;
+        }
+        return script;
+      }
+      // Get the value of vwo_eT from the hash
+      const cdnConfig = getCdnConfigFromURL();
+      window.vwo_eT = cdnConfig.encodingType;
+      window.cdnServerUrl = cdnConfig.cdnServerUrl;
+      var script = createScript();
+      const resourceURL = window.cdnServerUrl;
+      // Hash gets appended at release time via the bundler, hence we need to keep `src = 'cross_store_inject-b7a1a0ebe384e02ffe47b0d520957ab0'+(window.vwo_eT||"")+'.js'` as it uses a regex to parse this and append hash!
+      var src = "cross_store_inject-b7a1a0ebe384e02ffe47b0d520957ab0"+(window.vwo_eT||"")+".js";
+      script.src = resourceURL + src;
+      script.onerror = function() {
+        //Fallback for google cdn failure to dacdn
+        const srcUrlWithoutCdnPath = script.src.replace('/cdn', '');
+        if (srcUrlWithoutCdnPath !== script.src) {
+          // we can simply replace cdn path here as hash will already be existing inside the src URL!
+          document.head.appendChild(createScript(srcUrlWithoutCdnPath));
+        }
+      };
+      document.head.appendChild(script);
+    </script><script src="./cross_store_inject-b7a1a0ebe384e02ffe47b0d520957ab0br.js.download"></script>
+  </head>
+
+  <body>
+
+</body></html>

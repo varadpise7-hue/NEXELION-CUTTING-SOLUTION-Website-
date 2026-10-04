@@ -1,0 +1,518 @@
+
+<!-- saved from url=(0212)https://dev.visualwebsiteoptimizer.com/static/1.0/survey/survey-7039795edd8c22c13233e37718655a83br.html#encodingType=br&cdnServerUrl=https://dev.visualwebsiteoptimizer.com/cdn/static/1.0/survey/&accountId=1188541 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <link id="theme" rel="stylesheet">
+  <link rel="preconnect" href="https://cdn.visualwebsiteoptimizer.com/">
+<style type="text/css">
+  .hide-logo .vwo-logo {
+    display: none;
+  }
+</style><style id="custom-theme-css"></style></head>
+
+
+
+<body>
+  <!-- Emoji SVG Sprite -->
+  <svg xmlns="http://www.w3.org/2000/svg" data-embed-svg="emoji" style="display: none;">
+    <defs></defs>
+    <symbol viewBox="0 0 32 32" id="icon--emoji-angry">
+      <path fill="#fb7878" stroke="none" d="M32 16a16 16 0 0 1-16 16A16 16 0 0 1 0 16a16 16 0 0 1 32 0"></path>
+      <path stroke="#1a1a1a" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.327" d="M9.654 23.926c.828-4.69 9.656-7.172 12.414 0m-12.965-9.38c.515.832 1.898 1.998 3.31 0m7.173 0c.515.832 1.898 1.998 3.31 0"></path>
+    </symbol>
+    <symbol viewBox="0 0 32 32" id="icon--emoji-laugh">
+      <path fill="#ffe27d" d="M32 16a16 16 0 0 1-16 16A16 16 0 0 1 0 16a16 16 0 0 1 32 0"></path>
+      <path stroke="#1a1a1a" stroke-linecap="round" stroke-width="1.154" d="M18.502 12.64c.776-1.244 2.852-2.986 4.946 0m-14.839 0c.776-1.244 2.852-2.986 4.946 0"></path>
+      <path fill="#1a1a1a" d="M21.968 17.586H9.763c-.638 0-1.16.521-1.033 1.146.445 2.2 2.221 5.175 7.024 5.175 4.77 0 6.682-2.936 7.238-5.132.161-.637-.366-1.189-1.024-1.189"></path>
+    </symbol>
+    <symbol viewBox="0 0 32 32" id="icon--emoji-meh">
+      <path fill="#ffcf71" d="M32 16a16 16 0 0 1-16 16A16 16 0 0 1 0 16a16 16 0 0 1 32 0"></path>
+      <path fill="#1a1a1a" d="M12.69 15.448a1.655 1.655 0 0 1-1.655 1.655 1.655 1.655 0 0 1-1.656-1.655 1.655 1.655 0 0 1 3.311 0m9.931 0a1.655 1.655 0 0 1-1.655 1.655 1.655 1.655 0 0 1-1.656-1.655 1.655 1.655 0 0 1 3.311 0"></path>
+      <path stroke="#1a1a1a" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.327" d="M11.034 21.518h10.207"></path>
+    </symbol>
+    <symbol viewBox="0 0 32 32" id="icon--emoji-sad">
+      <path fill="#ffa27a" d="M32 16a16 16 0 0 1-16 16A16 16 0 0 1 0 16a16 16 0 0 1 32 0"></path>
+      <path stroke="#1a1a1a" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.327" d="M8.828 12.136c.643 1.104 2.372 2.649 4.138 0m-.828 8.277c1.103-1.379 4.303-3.31 8.275 0m-1.103-8.277c.644 1.104 2.373 2.649 4.138 0"></path>
+    </symbol>
+    <symbol viewBox="0 0 32 32" id="icon--emoji-smile">
+      <path fill="#ffde66" d="M32 16a16 16 0 0 1-16 16A16 16 0 0 1 0 16a16 16 0 0 1 32 0"></path>
+      <path stroke="#1a1a1a" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.327" d="M19.862 12.966c.276-1.104 2.482-2.207 3.862 0M12.69 12.69c-.276-.956-2.482-1.912-3.862 0m2.206 6.345c1.747 1.839 6.234 4.414 10.207 0"></path>
+    </symbol>
+  </svg>
+  <!-- Prefix All template ID attribute values with `t-` to differentiate b/w template and other html -->
+  <script type="text/template" id="t-welcome">
+      <span><%= data.message %></span>
+    </script>
+
+  <script type="text/template" id="t-thankyou">
+      <span><%= data.message %></span>
+    </script>
+  <script type="text/template" id="t-askEmail">
+      <input type="email" name="email" aria-label="email"/>
+    </script>
+
+  <script type="text/template" id="t-message">
+      <div class="<%=msgClass %>"><%= message%></div>
+    </script>
+
+  <script type="text/template" id="t-radio-question">
+      <% if (question.description) { %>
+        <div class="question-description"><%= question.description %></div>
+      <% } %>
+      <ul class="question">
+      	<% _.forEach(question.options, function (option) { %>
+      		<li class="choice">
+      			<input type="radio" id="<%= option.id %>" name="<%= question.id %>" value="<%= option.id %>" aria-labelledby="label-<%= option.id %>" tabindex="-1"/>
+      			<label class="choice" for="<%= option.id %>" id="label-<%= option.id %>" tabindex="0" onkeydown="survey.handleCheckedKeydown(event)" aria-label="<%= option.name %>"><%= option.name %></label>
+      			<% if(option.id === 0) { %>
+      				<input type="text" id="other-input" class="other-input-box" aria-label="Other"/>
+      			<% } %>
+      		</li>
+      	<% }) %>
+      </ul>
+    </script>
+
+  <script type="text/template" id="t-checkbox-question">
+      <% if (question.description) { %>
+        <div class="question-description"><%= question.description %></div>
+      <% } %>
+      <ul class="question">
+      	<% _.forEach(question.options, function (option) { %>
+      		<li class="choice">
+      			<input type="checkbox" id="<%= option.id %>" name="<%= question.id %>" value="<%= option.id %>" aria-labelledby="label-<%= option.id %>" tabindex="-1" onclick="survey.handleCheckboxSelection(event)"/>
+      			<label class="choice" for="<%= option.id %>" id="label-<%= option.id %>" tabindex="0" onkeydown="survey.handleCheckedKeydown(event)" aria-label="<%= option.name %>"><%= option.name %></label>
+      			<% if(option.id === 0) { %>
+      				<input type="text" id="other-input" class="other-input-box" aria-label="Other"/>
+      			<% } %>
+      		</li>
+      	<% }) %>
+      </ul>
+    </script>
+
+  <script type="text/template" id="t-select-question">
+    <% if (question.description) { %>
+      <div class="question-description"><%= question.description %></div>
+    <% } %>
+      <select id="dropdown-select" name="<%= question.id %>" aria-labelledby="question-label">
+      	<option value=""><%= question.DEFAULT_SELECT_OPTION %></option>
+      	<% _.forEach(question.options, function (option) { %>
+      		<option value="<%= option.id %>"><%= option.name %></option>
+      	<% }) %>
+      </select>
+      <div id="dropdown-select-box" onclick="survey.showDropdownSelect()" onkeydown="survey.handleDropdownKeydown(event)" role="combobox" aria-expanded="false" aria-controls="dropdown-options" aria-haspopup="listbox" tabindex="0" aria-label="Select an option">
+      	<div class="selected-option-box">
+      		<span id="selected-option"><%= question.DEFAULT_SELECT_OPTION %></span>
+      		<span class="caret"></span>
+      	</div>
+      	<ul class="question single" id="dropdown-options" role="listbox">
+      		<% _.forEach(question.options, function (option, index) { %>
+            <%
+      				// Used index+1 in data-index because we are not adding default option (-- Select an option --) having index 0 in dropdown list
+      			%>
+            <li class="select-choice" value="<%= option.id %>" onclick="survey.setDropdownSelect(event)" data-index="<%= index+1 %>" role="option" tabindex="-1"><%= option.name %></li>
+      		<% }) %>
+      	</ul>
+      </div>
+      <input type="text" id="other-input" class="other-input-box" aria-label="Other"/>
+    </script>
+
+  <script type="text/template" id="t-multi_select-question">
+    <% if (question.description) { %>
+      <div class="question-description"><%= question.description %></div>
+    <% } %>
+      <select id="dropdown-select" multiple name="<%= question.id %>" aria-labelledby="question-label">
+      	<% _.forEach(question.options, function (option) { %>
+      		<option value="<%= option.id %>"><%= option.name %></option>
+      	<% }) %>
+      </select>
+      <div id="dropdown-select-box" role="group" aria-labelledby="question-label" onkeydown="survey.handleMultiDropdownKeydown(event)" tabindex="0" aria-label="Select multiple options">
+      	<ul class="question multiple">
+      		<% _.forEach(question.options, function (option, index) { %>
+            <li class="select-choice" value="<%= option.id %>" onclick="survey.setDropdownSelect(event)" data-index="<%= index %>">
+      				<%= option.name %>
+      				<% // HACK : This inline rule is applied to hide 'check-mark' in old customized surveys %>
+      				<span class="check-mark" style="display: none;">&#x2713;</span>
+      			</li>
+      		<% }) %>
+      	</ul>
+      </div>
+      <input type="text" id="other-input" class="other-input-box" aria-label="Other" tabindex="0"/>
+    </script>
+  <script type="text/template" id="t-multi_line-question">
+    <% if (question.description) { %>
+      <div class="question-description"><%= question.description %></div>
+    <% } %>
+      <div class="question">
+      	<textarea aria-label="Answer" placeholder="<%= question.placeholder %>" name="<%= question.id %>" maxlength="<%= question.maxChar %>"></textarea>
+      </div>
+    </script>
+  <script type="text/template" id="t-single_line-question">
+    <% if (question.description) { %>
+      <div class="question-description"><%= question.description %></div>
+    <% } %>
+      <div class="question">
+      	<input aria-label="Answer" name="<%= question.id %>" placeholder="<%= question.placeholder %>" type="<%= question.inputType %>" maxlength="<%= question.maxChar %>"/>
+      </div>
+    </script>
+
+  <script type="text/template" id="t-rating-question">
+    <% if (question.description) { %>
+      <div class="question-description"><%= question.description %></div>
+    <% } %>
+      <div class="question rating" 
+           onclick="survey.setRating(event)"
+           onkeydown="survey.handleRatingKeydown(event)"
+           role="group"
+           aria-label="Rating">
+      	<span data-rating="5" role="radio" tabindex="-1" aria-label="5 stars" aria-checked="false"></span>
+      	<span data-rating="4" role="radio" tabindex="-1" aria-label="4 stars" aria-checked="false"></span>
+      	<span data-rating="3" role="radio" tabindex="-1" aria-label="3 stars" aria-checked="false"></span>
+      	<span data-rating="2" role="radio" tabindex="-1" aria-label="2 stars" aria-checked="false"></span>
+      	<span data-rating="1" role="radio" tabindex="0" aria-label="1 star" aria-checked="false"></span>
+      	<input id="rating-response" name="<%= question.id %>" type="hidden" />
+      </div>
+    </script>
+
+  <script type="text/template" id="t-emoji_rating-question">
+    <% if (question.description) { %>
+      <div class="question-description"><%= question.description %></div>
+    <% } %>
+      <div class="question emoji-rating" 
+           onclick="survey.setEmojiRating(event)"
+           onkeydown="survey.handleEmojiKeydown(event)"
+           role="radiogroup"
+           aria-label="Emoji Rating"
+           tabindex="0">
+      <% 
+        var emojiType = question.emojiType || 'default';
+        var options = question.options || [];
+        var emojiCount = 0;
+        
+        if (!options || options.length < 2) {
+          // Fallback: if no options provided, show error or empty
+          emojiCount = 0;
+        } else {
+          emojiCount = Math.max(2, Math.min(5, options.length));
+          
+          // Reverse loop to render in correct order with RTL direction
+          for (var j = emojiCount - 1; j >= 0; j--) {
+            var emojiItem = options[j];
+            var tabindex = j === emojiCount - 1 ? '0' : '-1';
+            var ariaLabel = 'Emoji ' + (j + 1);
+      %>
+      	<span data-rating="<%= emojiItem.id %>" role="radio" tabindex="<%= tabindex %>">
+      <% 
+            if (emojiType === 'text') {
+      %>
+      		<span class="emoji-text" aria-label="<%= ariaLabel %>"><%= emojiItem.name %></span>
+      <% 
+            } else {
+              // For 'default' and 'custom' types, use name as image URL
+      %>
+      		<img src="<%= emojiItem.name %>" alt="<%= ariaLabel %>" aria-label="<%= ariaLabel %>" />
+      <% 
+            }
+      %>
+      	</span>
+      <% 
+          }
+        }
+      %>
+      	<input id="emoji-rating-response" name="<%= question.id %>" type="hidden" />
+      </div>
+    </script>
+
+  <script type="text/template" id="t-nps-question">
+    <% if (question.description) { %>
+      <div class="question-description"><%= question.description %></div>
+    <% } %>
+      <ul class="question nps" onkeydown="survey.handleNPSKeydown(event)" aria-label="NPS Rating" tabindex="-1">
+      	<% var numbers = [0,1,2,3,4,5,6,7,8,9,10]; %>
+      	<% _.forEach(numbers, function (num) { %>
+      		<li class="nps-choice">
+      			<input type="radio" id="nps-<%= num %>" name="<%= question.id %>" value="<%= num %>" aria-labelledby="label-nps-<%= num %>"/>
+      			<label class="nps-choice" for="nps-<%= num %>" id="label-nps-<%= num %>" tabindex="<%= num === 0 ? '0' : '-1' %>" aria-label="<%= num %>"><%= num %></label>
+      		</li>
+      	<% }) %>
+      </ul>
+      <% if (!question.hideLabels) { %>
+        <div class="nps-info">
+        	<div class="left-info"> <%= question.NPS_MINIMUM %></div>
+        	<div class="right-info"><%= question.NPS_MAXIMUM %></div>
+        </div>
+      <% } %>
+    </script>
+
+  <script type="text/template" id="t-opinion_scale-question">
+    <% if (question.description) { %>
+      <div class="question-description"><%= question.description %></div>
+    <% } %>
+      <ul class="question opinion-scale" onkeydown="survey.handleOpinionScaleKeydown(event)" role="radiogroup" aria-label="Opinion Scale Rating" tabindex="-1">
+      	<% var numbers = [1,2,3,4,5]; %>
+      	<% _.forEach(numbers, function (num) { %>
+      		<li class="opinion-scale-choice">
+      			<input type="radio" id="opinion-scale-<%= num %>" name="<%= question.id %>" value="<%= num %>" aria-labelledby="label-opinion-scale-<%= num %>"/>
+      			<label class="opinion-scale-choice" for="opinion-scale-<%= num %>" id="label-opinion-scale-<%= num %>" role="radio" tabindex="<%= num === 1 ? '0' : '-1' %>"><%= num %></label>
+      		</li>
+      	<% }) %>
+      </ul>
+      <% if (!question.hideLabels) { %>
+        <div class="opinion-scale-info">
+        	<div class="left-info"><%= question.OPINION_SCALE_MINIMUM %></div>
+        	<div class="right-info"><%= question.OPINION_SCALE_MAXIMUM %></div>
+        </div>
+      <% } %>
+    </script>
+
+  <script type="text/template" id="t-matrix-question">
+    <% if (question.description) { %>
+      <div class="question-description"><%= question.description %></div>
+    <% } %>
+      <div class="question matrix" 
+           onclick="survey.setMatrixSelection(event)"
+           onkeydown="survey.handleMatrixKeydown(event)"
+           role="radiogroup"
+           aria-label="Matrix Selection"
+           tabindex="0">
+        <table class="matrix-table">
+          <thead>
+            <tr>
+              <th class="matrix-header-cell"></th>
+              <% if (question.columns && question.columns.length > 0) { %>
+                <% _.forEach(question.columns, function (column) { %>
+                  <th class="matrix-header-cell"><%= column.name %></th>
+                <% }) %>
+              <% } else { %>
+                <th class="matrix-header-cell"></th>
+                <th class="matrix-header-cell"></th>
+              <% } %>
+            </tr>
+          </thead>
+          <tbody>
+            <% if (question.rows && question.rows.length > 0) { %>
+              <% _.forEach(question.rows, function (row) { %>
+                <tr class="matrix-row">
+                  <td class="matrix-row-label"><%= row.name %></td>
+                  <% if (question.columns && question.columns.length > 0) { %>
+                    <% _.forEach(question.columns, function (column) { %>
+                      <td class="matrix-cell">
+                        <input type="radio" 
+                               id="matrix-<%= row.id %>-<%= column.id %>" 
+                               name="<%= question.id %>_row_<%= row.id %>" 
+                               value="<%= row.id %>|<%= column.id %>"
+                               aria-labelledby="label-matrix-<%= row.id %>-<%= column.id %>"/>
+                        <label for="matrix-<%= row.id %>-<%= column.id %>" 
+                               id="label-matrix-<%= row.id %>-<%= column.id %>" 
+                               class="matrix-label"
+                               role="radio" 
+                               tabindex="-1">
+                        </label>
+                      </td>
+                    <% }) %>
+                  <% } else { %>
+                    <td class="matrix-cell">
+                      <input type="radio" 
+                             id="matrix-<%= row.id %>-1" 
+                             name="<%= question.id %>_row_<%= row.id %>" 
+                             value="<%= row.id %>|1"
+                             aria-labelledby="label-matrix-<%= row.id %>-1"/>
+                      <label for="matrix-<%= row.id %>-1" 
+                             id="label-matrix-<%= row.id %>-1" 
+                             class="matrix-label"
+                             role="radio" 
+                             tabindex="-1">
+                      </label>
+                    </td>
+                    <td class="matrix-cell">
+                      <input type="radio" 
+                             id="matrix-<%= row.id %>-2" 
+                             name="<%= question.id %>_row_<%= row.id %>" 
+                             value="<%= row.id %>|2"
+                             aria-labelledby="label-matrix-<%= row.id %>-2"/>
+                      <label for="matrix-<%= row.id %>-2" 
+                             id="label-matrix-<%= row.id %>-2" 
+                             class="matrix-label"
+                             role="radio" 
+                             tabindex="-1">
+                      </label>
+                    </td>
+                  <% } %>
+                </tr>
+              <% }) %>
+            <% } else { %>
+              <tr class="matrix-row">
+                <td class="matrix-row-label"></td>
+                <td class="matrix-cell">
+                  <input type="radio" 
+                         id="matrix-1-1" 
+                         name="<%= question.id %>_row_1" 
+                         value="1|1"
+                         aria-labelledby="label-matrix-1-1"/>
+                  <label for="matrix-1-1" 
+                         id="label-matrix-1-1" 
+                         class="matrix-label"
+                         role="radio" 
+                         tabindex="-1">
+                  </label>
+                </td>
+                <td class="matrix-cell">
+                  <input type="radio" 
+                         id="matrix-1-2" 
+                         name="<%= question.id %>_row_1" 
+                         value="1|2"
+                         aria-labelledby="label-matrix-1-2"/>
+                  <label for="matrix-1-2" 
+                         id="label-matrix-1-2" 
+                         class="matrix-label"
+                         role="radio" 
+                         tabindex="-1">
+                  </label>
+                </td>
+              </tr>
+            <% } %>
+          </tbody>
+        </table>
+      </div>
+    </script>
+
+  <script type="text/template" id="t-html-question">
+    <% if (question.description) { %>
+      <div class="question-description"><%= question.description %></div>
+    <% } %>
+      <%= question.html %>
+    </script>
+
+  <script type="text/template" id="t-introductory_prompt-question">
+    <% if (question.description) { %>
+      <div class="question-description"><%= question.description %></div>
+    <% } %>
+      <div class="question introductory-prompt">
+      	<div class="introductory-content">
+      		<!-- Statement is shown in header, not here to avoid duplication -->
+      	</div>
+      </div>
+    </script>
+
+  <script type="text/template" id="t-header">
+      <% if (question && question.hasImage) { %>
+        <div class="question-image-container">
+          <img src="<%= question.image.url %>" alt="Question Image" class="question-image" />
+        </div>
+      <% } %>
+      <%= data.title %>
+    </script>
+
+  <script type="text/template" id="t-progress-bar">
+      <% if (question && question.progress) { %>
+        <div class="progress-bar-container">
+          <!-- <span class="progress-text">Question <%= question.progress.current %> of <%= question.progress.total %></span> -->
+          <div class="progress-bar-track">
+            <div class="progress-bar-fill" style="width: <%= (question.progress.current / question.progress.total * 100) %>%"></div>
+          </div>
+        </div>
+      <% } %>
+    </script>
+
+  <script type="text/template" id="t-footer">
+      <% if (!data.survey.fullWidthButton) { %>
+        <% if(data.survey.customLogo) { %>
+        <span class="vwo-logo custom-logo" style="background-image: url('<%= data.survey.logo %>')" aria-label="Custom Logo"></span><% }
+        else { %>
+        <a class="vwo-logo" target="_blank" href="https://vwo.com/product/analyze/surveys/#skip_hero_section/?utm_campaign=OPSBadge&utm_medium=web-widget&utm_source=<%=data.survey.url%>"
+           style="background-image: url('<%= data.survey.logo %>')" aria-label="Powered by VWO"></a>
+        <% } %>
+      <% } %>
+
+      <% if (ctxt === 'welcome'){ %>
+      	<% if (data.welcomeButton) { %>
+      		<input id="next" type="button" value="<%= data.welcomeButton %>" class="<%= data.survey.fullWidthButton ? 'button-full-width' : '' %>" aria-label="Next"/>
+      	<% } else { %>
+      		<input id="next" type="button" value="Start" class="<%= data.survey.fullWidthButton ? 'button-full-width' : '' %>" aria-label="Start"/>
+      	<% } %>
+      <% }
+      else if (ctxt === 'askEmail') { %><input id="next" type="button" value="Submit" class="<%= data.survey.fullWidthButton ? 'button-full-width' : '' %>" aria-label="Submit"/><% }
+      else if (ctxt === 'question') { %>
+      	<% 
+      		var shouldHideNextButton = false;
+      		if (data.survey.autoNext) {
+      			var supportedTypes = ['rating', 'emoji_rating', 'nps', 'opinion_scale'];
+      			var questionType = question.type || question.inputType;
+      			var isSupported = supportedTypes.indexOf(questionType) !== -1;
+      			var isOptional = question.optional || question.isOptional;
+      			
+      			shouldHideNextButton = isSupported && !isOptional;
+      		}
+      	%>
+      	<% if (!shouldHideNextButton) { %>
+      		<input
+            id="next"
+            type="button"
+            value="<%= question.buttonText %>"
+            class="<%= data.survey.fullWidthButton ? 'button-full-width' : '' %>"
+            aria-label="Next"
+            <% if (question.buttonLink) { %>onclick="window.open('<%= question.buttonLink %>', '_blank', 'noopener,noreferrer'); return false;"<% } %>
+          />
+      	<% } %>
+      	<% if (data.isSkippable){ %> <input id="skip" type="button" value="Skip" aria-label="Skip"/><% }  %>
+      <% } %>
+
+      <% if (data.survey.fullWidthButton) { %>
+        <% if(data.survey.customLogo) { %>
+        <span class="vwo-logo custom-logo logo-below-button" style="background-image: url('<%= data.survey.logo %>')" aria-label="Custom Logo"></span><% }
+        else { 
+          var fullWidthLogo = data.survey.fullWidthLogo;
+        %>
+        <a class="vwo-logo logo-below-button" target="_blank" href="https://vwo.com/product/analyze/surveys/#skip_hero_section/?utm_campaign=OPSBadge&utm_medium=web-widget&utm_source=<%=data.survey.url%>"
+           style="background-image: url('<%= fullWidthLogo %>')" aria-label="Powered by VWO"></a>
+        <% } %>
+      <% } %>
+    </script>
+
+  <!-- Placeholder in which various views are fitted in -->
+  <form action="https://dev.visualwebsiteoptimizer.com/static/1.0/survey/submit_survey" id="form" novalidate="" onsubmit="return false;">
+    <div id="header" role="banner" aria-label="Survey header"></div>
+    <div id="main" role="main" aria-label="Survey main content"></div>
+    <div id="message" role="region" aria-label="Survey messages"></div>
+  </form>
+  <div id="footer" role="contentinfo" aria-label="Survey footer"></div>
+  <div id="progress-bar" role="region" aria-label="Survey progress"></div>
+  <!-- Execute it after the html so that the elements it tries to find out are there-->
+  <script>
+    // Function to extract the value of vwo_eT from the hash
+    function getCdnConfigFromURL() {
+      const hash = window.location.hash.substring(1); // Remove the # character
+      const params = new URLSearchParams(hash);
+      return {
+        encodingType: params.get('encodingType') || '',
+        cdnServerUrl: params.get('cdnServerUrl') || ''
+      };
+    }
+    function createScript(src) {
+      var script = document.createElement('script');
+      if (src) {
+        script.src = src;
+      }
+      return script;
+    }
+    // Get the value of vwo_eT from the hash
+    const cdnConfig = getCdnConfigFromURL();
+    window.vwo_eT = cdnConfig.encodingType;
+    window.cdnServerUrl = cdnConfig.cdnServerUrl;
+    window.VWO = window.VWO || {};
+    window.VWO._ = window.VWO._ || {};
+    window.VWO._.useCdn = !!cdnConfig.cdnServerUrl;
+    var script = createScript();
+    const resourceURL = window.cdnServerUrl;
+    var src = "survey-bea026b9f1fd53e2856f13899452fcb7"+(window.vwo_eT||"")+".js";
+    script.src = resourceURL + src;
+    script.onerror = function () {
+      //Fallback for google cdn failure to dacdn
+      const srcUrlWithoutCdnPath = script.src.replace('/cdn', '');
+      if (srcUrlWithoutCdnPath !== script.src) {
+        document.head.appendChild(createScript(srcUrlWithoutCdnPath));
+      }
+    };
+    document.body.appendChild(script);
+  </script><script src="./survey-bea026b9f1fd53e2856f13899452fcb7br.js.download"></script>
+
+
+</body></html>
